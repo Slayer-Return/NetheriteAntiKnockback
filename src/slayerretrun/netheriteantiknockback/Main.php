@@ -41,9 +41,11 @@ class Main extends PluginBase implements Listener
     public function onKnockBack(EntityDamageByEntityEvent $event) : void
     {
         $victim = $event->getEntity();
-        if ($this->isPlayerUseNetheriteArmor($victim)){
-            $victim->setKnockBack(0.0);
-            $victim->setVerticalKnockBackLimit(0.0);
+        if ($victim instanceof Player){
+            if ($this->isPlayerUseNetheriteArmor($victim)){
+                $victim->setKnockBack(0.0);
+                $victim->setVerticalKnockBackLimit(0.0);
+            }
         }
     }
 
@@ -51,9 +53,9 @@ class Main extends PluginBase implements Listener
     {
         $playerArmorInventory = $player->getArmorInventory();
         if ($playerArmorInventory->getHelmet()->getTypeId() === ItemTypeIds::NETHERITE_HELMET &&
-            $playerArmorInventory->getHelmet()->getTypeId() === ItemTypeIds::NETHERITE_CHESTPLATE &&
-            $playerArmorInventory->getHelmet()->getTypeId() === ItemTypeIds::NETHERITE_LEGGINGS &&
-            $playerArmorInventory->getHelmet()->getTypeId() === ItemTypeIds::NETHERITE_BOOTS){
+            $playerArmorInventory->getChestplate()->getTypeId() === ItemTypeIds::NETHERITE_CHESTPLATE &&
+            $playerArmorInventory->getLeggings()->getTypeId() === ItemTypeIds::NETHERITE_LEGGINGS &&
+            $playerArmorInventory->getBoots()->getTypeId() === ItemTypeIds::NETHERITE_BOOTS){
             return true;
         }
         return false;
