@@ -43,8 +43,8 @@ class Main extends PluginBase implements Listener
         $victim = $event->getEntity();
         if ($victim instanceof Player){
             if ($this->isPlayerUseNetheriteArmor($victim)){
-                $event->setKnockBack(0.0);
-                $event->setVerticalKnockBackLimit(0.0);
+                $event->setKnockBack(0.5);
+                $event->setVerticalKnockBackLimit(0.5);
             }
         }
     }
