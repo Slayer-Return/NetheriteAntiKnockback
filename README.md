@@ -1,6 +1,6 @@
 ## NetheriteAntiKnockback
 
-A simple plugin for netherite armor to disable knockback.
+A simple plugin for netherite armor to modified knockback.
 
 ## Credits
 
